@@ -39,7 +39,7 @@ const getDbConfig = () => {
     DB_TRUST_SERVER_CERTIFICATE: trustServerCertificate
   } = process.env
 
-  var connectionInfo = { server, port, userName, password, database, instanceName, trustServerCertificate }
+  let connectionInfo = { server, port, userName, password, database, instanceName, trustServerCertificate }
 
   connectionInfo = sanitizeConnectionInfo(connectionInfo)
   const dbConfig = generateKnexConfig(connectionInfo)
