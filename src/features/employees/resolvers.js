@@ -1,7 +1,7 @@
 const employeesResolvers = {
   Query: {
-    employeesData: async (_, { position }, { dataSources }, _info) => {
-      const data = await dataSources.employeesApi.employeesData(position)
+    employeesData: async (_, { position, query }, { dataSources }, _info) => {
+      const data = await dataSources.employeesApi.employeesData(position, query)
 
       return data
     }

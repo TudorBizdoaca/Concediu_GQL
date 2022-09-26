@@ -11,7 +11,7 @@ const employeesDefs = gql`
   }
 
   extend type Query {
-    employeesData(position: Int): [Employee!]
+    employeesData(position: Int, query: String): [Employee!]
   }
 `
 
