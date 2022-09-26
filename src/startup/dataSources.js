@@ -1,4 +1,5 @@
 const EmployeesApi = require('../features/employees/dataSources/employeesAPI')
+const UserAddApi = require('../features/employeeAdd/dataSources/userAddApi')
 const UserApi = require('../features/user/dataSources/userApi')
 const UserDb = require('../features/user/dataSources/userDb')
 
@@ -6,7 +7,8 @@ module.exports.getDataSources = () => ({
   // Instantiate your data sources here. e.g.: userApi: new UserApi()
   userApi: new UserApi(),
   userDb: new UserDb(),
-  employeesApi: new EmployeesApi()
+  employeesApi: new EmployeesApi(),
+  userAddApi: new UserAddApi()
 })
 
 module.exports.initializedDataSources = (context, dbInstance, dataSources) => {
@@ -14,5 +16,6 @@ module.exports.initializedDataSources = (context, dbInstance, dataSources) => {
   dataSources.userApi.initialize({ context })
   dataSources.userDb.initialize({ context: { dbInstance } })
   dataSources.employeesApi.initialize({ context })
+  dataSources.UserAddApi.initialize({ context })
   return dataSources
 }
