@@ -21,9 +21,16 @@ const sources = loadTypedefsSync(join(__dirname, '../**/*.graphql'), {
   loaders: [new GraphQLFileLoader()]
 })
 
-const resolvers = merge(userResolvers, employeesResolvers, employeeAddResolvers)
+const resolvers = merge(userResolvers, employeesResolvers, employeeAddResolvers, PTORequestResolver)
 
-const typeDefs = [...sources.map(source => source.document), ...oldTypeDefs, userAddDefs, employeeAddDefs, employeesDefs]
+const typeDefs = [
+  ...sources.map(source => source.document),
+  ...oldTypeDefs,
+  userAddDefs,
+  employeeAddDefs,
+  employeesDefs,
+  PTORequestsDefs
+]
 
 module.exports = makeExecutableSchema({ typeDefs, resolvers })
 module.exports.tests = { typeDefs, resolvers }
