@@ -8,6 +8,9 @@ const { join } = require('path')
 const userResolvers = require('../features/user/resolvers')
 const userDefs = require('../features/user/schema')
 
+const vacationsResolvers = require('../features/vacations/vacationsResolvers')
+const vacationDefs = require('../features/vacations/vacationsSchema')
+
 const employeesResolvers = require('../features/employees/resolvers')
 const employeesDefs = require('../features/employees/schema')
 
@@ -16,9 +19,9 @@ const sources = loadTypedefsSync(join(__dirname, '../**/*.graphql'), {
   loaders: [new GraphQLFileLoader()]
 })
 
-const resolvers = merge(userResolvers, employeesResolvers)
+const resolvers = merge(userResolvers, employeesResolvers, vacationsResolvers)
 
-const typeDefs = [...sources.map(source => source.document), ...oldTypeDefs, userDefs, employeesDefs]
+const typeDefs = [...sources.map(source => source.document), ...oldTypeDefs, userDefs, employeesDefs, vacationDefs]
 
 module.exports = makeExecutableSchema({ typeDefs, resolvers })
 module.exports.tests = { typeDefs, resolvers }
