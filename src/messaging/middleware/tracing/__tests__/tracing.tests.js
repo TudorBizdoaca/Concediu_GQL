@@ -8,7 +8,7 @@ describe('Tracing tests', () => {
     jest.resetModules()
   })
 
-  it('should create span from received msg: ', async () => {
+  it('should create span from received msg:', async () => {
     //arrange
     const someCorrelationId = 'some-correlation-id'
     const msg = envelope({}, { correlationId: someCorrelationId })
