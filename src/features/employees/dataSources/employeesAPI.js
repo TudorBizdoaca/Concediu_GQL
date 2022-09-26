@@ -5,8 +5,8 @@ class EmployeesApi extends ApiRESTDataSource {
     super()
   }
 
-  async employeesData(position) {
-    const employeesData = this.get(`Angajat/GetTotiAngajatii?position=${position}`)
+  async employeesData(position, query) {
+    const employeesData = this.get(`Angajat/GetTotiAngajatii?position=${position}&query=${query}`)
 
     return employeesData
   }
