@@ -14,6 +14,7 @@ const userAddDefs = gql`
     no: String!
     nrTelefon: String!
     esteAdmin: Boolean!
+    poza: String
   }
 
   input UserInput {
@@ -28,6 +29,7 @@ const userAddDefs = gql`
     no: String
     nrTelefon: String
     esteAdmin: Boolean
+    poza: String
   }
 
   extend type Mutation {
