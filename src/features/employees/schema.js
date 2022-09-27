@@ -10,8 +10,13 @@ const employeesDefs = gql`
     nrTelefon: String!
   }
 
+  type EmployeesExtended {
+    listaAngajati: [Employee]
+    nrAngajati: Int
+  }
+
   extend type Query {
-    employeesData(position: Int, query: String): [Employee!]
+    employeesData(position: Int, query: String): EmployeesExtended
   }
 `
 
