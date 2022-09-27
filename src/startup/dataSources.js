@@ -3,7 +3,7 @@ const UserAddApi = require('../features/employeeAdd/dataSources/userAddApi')
 const PTORequestApi = require('../features/PTORequest/dataSources/PTORequestApi')
 const UserApi = require('../features/user/dataSources/userApi')
 const UserDb = require('../features/user/dataSources/userDb')
-const vacationsApi = require('../features/vacations/dataSources/vacationsAPI')
+const vacationsApi = require('../features/Vacations/dataSources/vacationsAPI')
 
 module.exports.getDataSources = () => ({
   // Instantiate your data sources here. e.g.: userApi: new UserApi()

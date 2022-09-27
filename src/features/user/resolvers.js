@@ -2,8 +2,8 @@ const { topics, pubSub } = require('../../pubSub')
 
 const userResolvers = {
   Query: {
-    userData: async (_, __, { dataSources }, _info) => {
-      const data = await dataSources.userApi.userData()
+    userData: async (_, { email }, { dataSources }, _info) => {
+      const data = await dataSources.userApi.userData(email)
       return data
     }
   },
