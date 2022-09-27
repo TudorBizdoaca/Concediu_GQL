@@ -14,14 +14,24 @@ const employeeAddDefs = require('../features/employeeAdd/schema')
 const employeesResolvers = require('../features/employees/resolvers')
 const employeesDefs = require('../features/employees/schema')
 
+const holidayHistoryResolvers = require('../features/holidayHistory/resolvers')
+const holidayHistoryDefs = require('../features/holidayHistory/schema')
+
 const oldTypeDefs = []
 const sources = loadTypedefsSync(join(__dirname, '../**/*.graphql'), {
   loaders: [new GraphQLFileLoader()]
 })
 
-const resolvers = merge(userResolvers, employeesResolvers, employeeAddResolvers)
+const resolvers = merge(userResolvers, employeesResolvers, employeeAddResolvers, holidayHistoryResolvers)
 
-const typeDefs = [...sources.map(source => source.document), ...oldTypeDefs, userAddDefs, employeeAddDefs, employeesDefs]
+const typeDefs = [
+  ...sources.map(source => source.document),
+  ...oldTypeDefs,
+  userAddDefs,
+  employeeAddDefs,
+  employeesDefs,
+  holidayHistoryDefs
+]
 
 module.exports = makeExecutableSchema({ typeDefs, resolvers })
 module.exports.tests = { typeDefs, resolvers }
