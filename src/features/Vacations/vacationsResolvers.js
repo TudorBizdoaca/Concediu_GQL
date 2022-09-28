@@ -5,16 +5,15 @@ const vacationsResolvers = {
 
       return data.map(row => {
         return {
-          ...row,
-          nume: row.angajat ? row.angajat.nume : 'test',
-          prenume: row.angajat.prenume,
-          numeManager: row.manager ? row.manager.nume : 'test1',
-          prenumeManager: row.manager?.prenume,
-          idManager: row.manager ? row.manager.id : 0,
-          tipConcediu: row.tipConcediu ? row.tipConcediu.nume : 'test2',
-          numeInlocuitor: row.inlocuitor ? row.inlocuitor.nume : 'test3',
-          prenumeInlocuitor: row.inlocuitor.prenume,
-          stareConcediu: row.stareConcediu ? row.stareConcediu.nume : 'test4'
+          nume: row.angajat?.nume + ' ' + row.angajat?.prenume,
+          numeManager: row.angajat.manager?.nume + ' ' + row.angajat.manager?.prenume,
+          idManager: row.angajat.manager?.id,
+          tipConcediu: row.tipConcediu?.nume,
+          numeInlocuitor: row.inlocuitor?.nume + '' + row.inlocuitor?.prenume,
+          stareConcediu: row.stareConcediu?.nume,
+          id: row.id,
+          dataInceput: row?.dataInceput,
+          dataSfarsit: row?.dataSfarsit
         }
       })
     },

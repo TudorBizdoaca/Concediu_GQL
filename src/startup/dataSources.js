@@ -4,6 +4,7 @@ const PTORequestApi = require('../features/PTORequest/dataSources/PTORequestApi'
 const UserApi = require('../features/user/dataSources/userApi')
 const UserDb = require('../features/user/dataSources/userDb')
 const vacationsApi = require('../features/vacations/dataSources/vacationsAPI')
+const detailsApi = require('../features/details/dataSources/detailsApi')
 
 module.exports.getDataSources = () => ({
   // Instantiate your data sources here. e.g.: userApi: new UserApi()
@@ -12,6 +13,7 @@ module.exports.getDataSources = () => ({
   employeesApi: new EmployeesApi(),
   vacationsApi: new vacationsApi(),
   userAddApi: new UserAddApi(),
+  detailsApi: new detailsApi(),
   PTORequestApi: new PTORequestApi()
 })
 
@@ -22,6 +24,7 @@ module.exports.initializedDataSources = (context, dbInstance, dataSources) => {
   dataSources.PTORequestApi.initialize({ context })
   dataSources.employeesApi.initialize({ context })
   dataSources.UserAddApi.initialize({ context })
+  dataSources.detailsApi.initialize({ context })
   dataSources.vacationsApi.initialize({ context })
   return dataSources
 }
