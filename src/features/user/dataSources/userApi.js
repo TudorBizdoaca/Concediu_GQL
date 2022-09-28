@@ -5,14 +5,18 @@ class UserApi extends ApiRESTDataSource {
     super()
   }
 
-  async userData() {
-    const userData = { id: 1, isAdmin: true }
+  async userData(email) {
+    const userData = await this.get(`Autentificare/UtilizatorLogat?email=${email}`)
+
     return userData
   }
 
   async authenticateUser(userName, password) {
-    if (userName !== 'Administrator' || password !== 'a') return false
-    else return true
+    const authenticateUser = await this.post(
+      `Autentificare/VerificareAutentificare?userName=${userName}&password=${password}`
+    )
+
+    return authenticateUser
   }
 }
 

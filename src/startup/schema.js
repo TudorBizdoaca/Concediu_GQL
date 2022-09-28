@@ -20,6 +20,9 @@ const detailsDefs = require('../features/details/detailsSchema')
 const employeesResolvers = require('../features/employees/resolvers')
 const employeesDefs = require('../features/employees/schema')
 
+const holidayHistoryResolvers = require('../features/holidayHistory/resolvers')
+const holidayHistoryDefs = require('../features/holidayHistory/schema')
+
 const PTORequestResolver = require('../features/PTORequest/resolvers')
 const PTORequestsDefs = require('../features/PTORequest/schema')
 const oldTypeDefs = []
@@ -29,20 +32,29 @@ const sources = loadTypedefsSync(join(__dirname, '../**/*.graphql'), {
 
 const resolvers = merge(
   userResolvers,
+
   employeesResolvers,
+
   employeeAddResolvers,
+
   PTORequestResolver,
+
   vacationsResolvers,
-  detailsResolvers
+  detailsResolvers,
+  holidayHistoryResolvers
 )
 
 const typeDefs = [
   ...sources.map(source => source.document),
+
   ...oldTypeDefs,
+
   userAddDefs,
   detailsDefs,
   employeeAddDefs,
+
   employeesDefs,
+  holidayHistoryDefs,
   PTORequestsDefs,
   vacationDefs
 ]
