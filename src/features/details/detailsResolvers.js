@@ -16,6 +16,11 @@ const detailsResolvers = {
         comentarii: data?.comentarii
       }
     }
+  },
+  Mutation: {
+    updateStareConcediu: async (_, { input }, { dataSources }) => {
+      const data = await dataSources.detailsApi.updateStareConcediu(input)
+    }
   }
 }
 

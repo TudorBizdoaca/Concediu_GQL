@@ -9,6 +9,10 @@ class detailsApi extends ApiRESTDataSource {
     const data = await this.get(`http://localhost:5085/api/PaginaDetalii/GetConcediubyId?idConcediu=${id}`)
     return data
   }
+
+  async updateStareConcediu(input) {
+    const data = await this.post('http://localhost:5085/api/PaginaDetalii/UpdateStareConcediu', input)
+  }
 }
 
 module.exports = detailsApi
