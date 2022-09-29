@@ -14,6 +14,9 @@ const employeeAddDefs = require('../features/employeeAdd/schema')
 const vacationsResolvers = require('../features/Vacations/vacationsResolvers')
 const vacationDefs = require('../features/Vacations/vacationsSchema')
 
+const detailsResolvers = require('../features/details/detailsResolvers')
+const detailsDefs = require('../features/details/detailsSchema')
+
 const employeeResolvers = require('../features/employee/resolvers')
 const employeeDefs = require('../features/employee/schema')
 
@@ -34,9 +37,13 @@ const resolvers = merge(
   userResolvers,
   employeeResolvers,
   employeesResolvers,
+
   employeeAddResolvers,
+
   PTORequestResolver,
+
   vacationsResolvers,
+  detailsResolvers,
   holidayHistoryResolvers
 )
 
@@ -46,7 +53,7 @@ const typeDefs = [
   ...oldTypeDefs,
 
   userAddDefs,
-
+  detailsDefs,
   employeeAddDefs,
 
   employeeDefs,

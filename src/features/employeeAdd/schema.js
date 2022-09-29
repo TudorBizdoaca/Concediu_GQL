@@ -15,6 +15,7 @@ const userAddDefs = gql`
     nrTelefon: String!
     esteAdmin: Boolean!
     poza: String
+    managerId: Int
   }
 
   input UserInput {
@@ -30,10 +31,20 @@ const userAddDefs = gql`
     nrTelefon: String
     esteAdmin: Boolean
     poza: String
+    managerId: Int
   }
-
+  type Manager {
+    id: Int
+    nume: String
+    prenume: String
+    NumeIntreg: String
+  }
   extend type Mutation {
     createUserData(input: UserInput): Boolean!
+  }
+
+  extend type Query {
+    getManageri: [Manager!]
   }
 `
 module.exports = userAddDefs

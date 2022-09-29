@@ -16,5 +16,10 @@ class UserAddApi extends ApiRESTDataSource {
 
     return result
   }
+
+  async getManageri() {
+    let data = await this.get('/PaginaInregistrare/GetManageri')
+    return data
+  }
 }
 module.exports = UserAddApi

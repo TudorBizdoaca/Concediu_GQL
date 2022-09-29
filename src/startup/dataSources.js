@@ -6,6 +6,7 @@ const HolidayHistoryApi = require('../features/holidayHistory/dataSources/holida
 const UserDb = require('../features/user/dataSources/userDb')
 const vacationsApi = require('../features/Vacations/dataSources/vacationsAPI')
 const EmployeeApi = require('../features/employee/dataSources/employeeAPI')
+const detailsApi = require('../features/details/dataSources/detailsApi')
 
 module.exports.getDataSources = () => ({
   // Instantiate your data sources here. e.g.: userApi: new UserApi()
@@ -15,6 +16,7 @@ module.exports.getDataSources = () => ({
   employeesApi: new EmployeesApi(),
   vacationsApi: new vacationsApi(),
   userAddApi: new UserAddApi(),
+  detailsApi: new detailsApi(),
   PTORequestApi: new PTORequestApi(),
   holidayHistoryApi: new HolidayHistoryApi()
 })
@@ -27,6 +29,7 @@ module.exports.initializedDataSources = (context, dbInstance, dataSources) => {
   dataSources.employeeApi.initialize({ context })
   dataSources.employeesApi.initialize({ context })
   dataSources.UserAddApi.initialize({ context })
+  dataSources.detailsApi.initialize({ context })
   dataSources.holidayHistoryApi.initialize({ context })
   dataSources.vacationsApi.initialize({ context })
   return dataSources

@@ -7,13 +7,10 @@ const vacationDefs = gql`
 
   type Concedii {
     nume: String
-    prenume: String
     numeManager: String
-    prenumeManager: String
     idManager: Int
     tipConcediu: String
     numeInlocuitor: String
-    prenumeInlocuitor: String
     dataInceput: DateTime
     dataSfarsit: DateTime
     stareConcediu: String
