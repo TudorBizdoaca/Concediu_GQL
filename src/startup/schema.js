@@ -14,6 +14,9 @@ const employeeAddDefs = require('../features/employeeAdd/schema')
 const vacationsResolvers = require('../features/Vacations/vacationsResolvers')
 const vacationDefs = require('../features/Vacations/vacationsSchema')
 
+const employeeResolvers = require('../features/employee/resolvers')
+const employeeDefs = require('../features/employee/schema')
+
 const employeesResolvers = require('../features/employees/resolvers')
 const employeesDefs = require('../features/employees/schema')
 
@@ -29,6 +32,7 @@ const sources = loadTypedefsSync(join(__dirname, '../**/*.graphql'), {
 
 const resolvers = merge(
   userResolvers,
+  employeeResolvers,
   employeesResolvers,
   employeeAddResolvers,
   PTORequestResolver,
@@ -45,6 +49,7 @@ const typeDefs = [
 
   employeeAddDefs,
 
+  employeeDefs,
   employeesDefs,
   holidayHistoryDefs,
   PTORequestsDefs,
