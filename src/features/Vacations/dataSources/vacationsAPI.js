@@ -6,7 +6,7 @@ class vacationsApi extends ApiRESTDataSource {
   }
 
   async vacationsData(position, isAdmin, id) {
-    const data = this.get(`TabelConcedii/GetConcedii?position=${position}&esteAdmin=${isAdmin}&id=${id}`)
+    const data = this.get(`TabelConcedii/GetConcediiFinal?position=${position}&esteAdmin=${isAdmin}&id=${id}`)
     return data
   }
 
