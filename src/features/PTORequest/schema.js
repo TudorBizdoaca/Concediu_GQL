@@ -12,7 +12,6 @@ const PTORequestsDefs = gql`
     angajatId: Int
   }
   input inputConcediu {
-    id: Int
     tipConcediuId: Int
     dataInceput: String
     dataSfarsit: String
