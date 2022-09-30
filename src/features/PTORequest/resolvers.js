@@ -1,3 +1,5 @@
+const { values } = require('ramda')
+
 const PTORequestResolver = {
   Query: {
     // eslint-disable-next-line no-empty-pattern
@@ -21,8 +23,8 @@ const PTORequestResolver = {
     }
   },
   Mutation: {
-    insertConcediu: async (_, { inputConcediu }, { dataSources }) => {
-      const value = await dataSources.PTORequestApi.insertConcediu(inputConcediu)
+    insertConcediu: async (_, { input }, { dataSources }) => {
+      const value = await dataSources.PTORequestApi.insertConcediu(input)
     }
   }
 }
